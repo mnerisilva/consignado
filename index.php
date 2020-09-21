@@ -56,7 +56,7 @@ include_once 'includes/message.php';
                             <!--<td></td>
                             <td></td>-->
                             <td class="td-ade"><?php echo $dados['ade_contrato']; ?></td>
-                            <td class="td-parce"><span class="span-parce"><?php echo number_format($dados['parce_contrato'],2,",","."); ?></span></td>
+                            <td class="td-parce"><span class="span-parce"><?php echo "R$ " . number_format($dados['parce_contrato'],2,",","."); ?></span></td>
                             <td class="td-situa">
                                 <?php                                
                                    // busca descrição da situação na tabela situação
@@ -92,7 +92,7 @@ include_once 'includes/message.php';
                                             $tipo_icone_anexo = $array_file_name[1];
                                             if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
                                             //echo $dados2['file_name_anexo'];                                            
-                                            echo '<a class="color-icon-'.$extensao_file.'" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                            
+                                            echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                            
                                         }
                                     endwhile;                                     
                                 ?>

@@ -158,6 +158,15 @@
     
 }
 
+/*.lista-propostas tbody tr .td-parce {
+    position: relative;
+}*/
+/*.lista-propostas tbody tr .td-parce:before {
+    position: absolute;
+    content: 'R$';    
+    margin-left: -25px;
+}*/
+
 /*.span-situa-8 {
     border-left: solid 6px;
     border-radius: 73%;
@@ -187,4 +196,8 @@
 #modalAnexos .fa-trash:hover {
     color: darkgoldenrod;
     cursor: pointer;
+}
+
+.anexo i {
+    margin-right: 5px;
 }
