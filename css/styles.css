@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+.color-1 {
+    border-right: solid 9px indianred;
+    /*position:  relative;*/
+    /*background-color: indianred;*/
+}
+
+.color-1 ~ .td-situa { 
+   color: indianred;
+}
+
+.color-1 ~ .td-motivo-situa { 
+   color: indianred;
+}
+
+.color-8 {
+    border-right: solid 9px burlywood;
+    /*position:  relative;*/
+    /*background-color: burlywood;*/
+}
+
+.color-8 ~ .td-situa { 
+    color: burlywood;
+}
+
+.color-8 ~ .td-motivo-situa { 
+    color: burlywood;
+}
+
+.color-11 {
+    border-right: solid 9px #a987de;
+    /*position:  relative;*/
+    /*background-color: burlywood;*/
+}
+
+.color-11 ~ .td-situa { 
+    color: #a987de;
+}
+
+.color-11 ~ .td-motivo-situa { 
+    color: #a987de;
+}
+
+
+/*.color-1:before {
+    content: '';
+    width: 8px;
+    height: 25px;
+    background-color: indianred;
+    position: absolute;
+    right: 0;
+}
+
+.color-8:before {
+    content: '';
+    width: 8px;
+    height: 25px;
+    background-color: burlywood;
+    position: absolute;
+    right: 0;
+}*/
+
+.icon-bt-anexo:hover {
+    cursor: pointer;
+    color: burlywood;
+}
+
+.lista-propostas>tbody>tr>td, .lista-propostas>tbody>tr>th, .lista-propostas>tfoot>tr>td, .lista-propostas>tfoot>tr>th, .lista-propostas>thead>tr>td, .lista-propostas>thead>tr>th {
+    padding: 0 !important;
+}
+
+.cod-cliente {
+    text-align: right;
+    width: 2em;
+}
+
+.lista-propostas>tbody>tr>td.cod-cliente {
+    
+    padding-right: 5px !important;
+}
+
+.lista-propostas>tbody>tr>td.td-nome {
+    
+    padding-left: .2em !important;
+}
+
+.lista-propostas>tbody>tr>td.td-situa {    
+    padding-left: .2em !important;
+    font-weight: 700;
+}
+
+.td-nome {
+    width: 16em;
+    padding-left: .2em;
+}
+
+.td-ade {
+    width: 5em;
+}
+
+.td-cpf {
+    width: 8em;
+}
+
+
+
+.td-situa {
+    width: 12em;
+}
+
+/*.td-situa::before {
+    width: 20em;
+    content: '\00A6';
+    position: absolute;
+}/*
+
+.td-bccompra {
+    width: 16em;
+}
+
+.blue {
+    color: #007ccd;
+}
+
+.red {
+    color: #e96868;
+}
+
+.span-situa-1 {
+    /*border-left: solid 6px;
+    border-radius: 73%;
+    position: relative;
+}*/
+
+
+.lista-propostas tbody tr td:last-child {
+    border-right: solid 9px indianred;
+}
+
+
+
+.lista-propostas tbody tr td:last-child a:hover {
+    cursor: default;
+    color: darkgoldenrod;
+}
+
+.lista-propostas tbody tr .td-parce {
+    width: 8em;
+    text-align: right;
+    padding-right: 1em !important;
+    border-right: solid thin #ccc;
+    
+}
+
+/*.span-situa-8 {
+    border-left: solid 6px;
+    border-radius: 73%;
+}*/
+
+.lista-propostas tbody tr td .icon-bt-anexo {
+    padding-right: 1.6em;
+}
+
+.color-icon-pdf {
+    color: indianred !important;
+}
+
+.color-icon-jpg {
+    color: #337ab7 !important;
+}
+
+.td-motivo-situa {
+    width: 22em;
+}
+
+.edit-btn:hover {
+    color: darkgoldenrod;
+    cursor: pointer;
+}
+
+#modalAnexos .fa-trash:hover {
+    color: darkgoldenrod;
+    cursor: pointer;
+}
