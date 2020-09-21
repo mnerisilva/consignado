@@ -56,7 +56,7 @@ include_once 'includes/message.php';
                             <!--<td></td>
                             <td></td>-->
                             <td class="td-ade"><?php echo $dados['ade_contrato']; ?></td>
-                            <td class="td-parce"><span class="span-parce"><?php echo $dados['parce_contrato']; ?></span></td>
+                            <td class="td-parce"><span class="span-parce"><?php echo number_format($dados['parce_contrato'],2,",","."); ?></span></td>
                             <td class="td-situa">
                                 <?php                                
                                    // busca descrição da situação na tabela situação
@@ -171,32 +171,15 @@ include_once 'includes/message.php';
                   </div>  
                   <div id="editForm">   
                   </div>  
-              </div>  
+            <div class='modal-footer'> 
+                 <span class='btn btn-success'><i class='fas fa-plus-circle' style='font-size: 3em;'></i></span>  
+                 <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>
+            </div>   
+              </div> 
           </div>  
        </div> 
     
 
-            <!-- Modal -->
-            <!--<div class="modal fade" id="modalAnexos" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    ...
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                  </div>
-                </div>
-              </div>
-            </div>-->
-    
     
 </section>
 

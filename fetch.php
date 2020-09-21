@@ -36,14 +36,10 @@
                         <tr>
                             <th>Contrato</th>
                             <th>Arquivo</th>
-                            <th></th>
+                            <th></i></th>
                     </thead>
                     <tbody>".$output."
                     </tbody>
                 </table>
-            </div>  
-            <div class='modal-footer'>  
-                 <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>  
-                 <button type='button' class='btn btn-info' id='editSubmit'>Save changes</button>  
             </div>"; 
  ?> 

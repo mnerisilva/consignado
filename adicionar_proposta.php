@@ -18,12 +18,6 @@ include_once 'includes/header.php';
                       <div class="form-group col-md-5">
                         <label class="" for="cli">Cliente:</label>
                           <select class="form-control" name="cli" id="cli">
-                            <option value="">...</option>
-                            <option value="1">Carlos da Silva Junior</option>
-                            <option value="2">Luiz Carlos da Silva Costa</option>
-                            <option value="3">Marcelo Neri da Silva</option>
-                            <option value="4">Roberto Pereira Costa</option>
-                            <option value="5">Elias Cardoso Pereira</option>
                           </select>
                       </div>
                       <div class="form-group col-md-3">
@@ -136,7 +130,7 @@ include_once 'includes/header.php';
                     <div class="row">
                       <div class="col-md-12">
                         <button type="submit" name="btn-cadastrar-proposta" class="btn btn-success">Cadastrar</button>
-                        <a href="template.html" class="btn btn-default">Cancelar</a>
+                        <a href="index.php" class="btn btn-default">Cancelar</a>
                       </div>
                     </div>
                 </form>                                

@@ -5,6 +5,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="js/jquery.mask.min.js"></script>
 
+
       <script>
       	 //M.AutoInit();
           
@@ -18,8 +19,7 @@
   </html>  
  <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->  
  <script type="text/javascript">  
-      $(document).ready(function(){          
-       
+      $(document).ready(function(){ 
               console.log('teste');
               $('#cpf').mask('000.000.000-00', {reverse: true});
               $('#cep').mask('00000-000');
@@ -111,6 +111,37 @@
                           }  
                      }  
                 });  
-           });  
+           }); 
+          
+          
+           
+           // populando select cliente no formulário adicionar_proposta.php
+                var action = 'proposta_cli'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log(data);
+                         $('#cli').html(data);
+                     }  
+                })
+          
+           // populando select cliente no formulário adicionar_proposta.php
+                var action = 'proposta_orgao'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log(data);
+                         $('#cli').html(data);
+                     }  
+                })
+          
+          
+          
       });  
  </script>

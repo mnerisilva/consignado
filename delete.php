@@ -58,7 +58,7 @@
                         <tr>
                             <th>Contrato</th>
                             <th>Arquivo</th>
-                            <th></th>
+                            <th><i class='fas fa-plus-circle'></i></th>
                     </thead>
                     <tbody>".$output."
                     </tbody>
