@@ -31,14 +31,14 @@
               $('#ml').mask('#.##0,00', {reverse: true});
 
 
-            console.log('entrou na function javascript');
+            //console.log('entrou na function javascript');
             //var id = $('input[name=orgao]').val();
-            $.ajax({ // ajax
+            /*$.ajax({ // ajax
                 type: "GET",
                 url: "carrega_select.php?cli=cli",
-                success: function(result) {
+                success: function(result) {*/
                     //result = JSON.parse(result);
-                    console.log(result);
+                    //console.log(result);
 
                     /*if(result.success) {
                         for (var i = 0; i < result.produtos.length; i++) {
@@ -48,8 +48,8 @@
                         $('p').text('nao encontrado');
                     }*/
 
-                }
-            });          
+                //}
+            //});          
           
           
            // Edit record to mysqli from php using jquery ajax  
@@ -111,7 +111,26 @@
                           }  
                      }  
                 });  
-           }); 
+           });
+            
+          
+            // upload de arquivos
+             $('#upload_form').on('submit', function(){
+              console.log('entrou no envio dos uploads');
+              $.ajax({
+               url:"upload.php",
+               method:"POST",
+               data: new FormData(this),
+               contentType: false,
+               cache: false,
+               processData:false,
+               success: function(data) { 
+                   console.log(data);
+                //load_folder_list();
+                //alert(data);
+               }
+              });
+             });          
           
           
            
@@ -123,13 +142,13 @@
                      cache:false,  
                      data:{action: action},  
                      success:function(data){
-                         console.log(data);
+                         //console.log(data);
                          $('#cli').html(data);
                      }  
                 })
           
            // populando select cliente no formulário adicionar_proposta.php
-                var action = 'proposta_orgao'; 
+                /*var action = 'proposta_orgao'; 
                 $.ajax({  
                      url:"popula_selects.php",  
                      type:"POST",  
@@ -139,7 +158,7 @@
                          console.log(data);
                          $('#cli').html(data);
                      }  
-                })
+                })*/
           
           
           
