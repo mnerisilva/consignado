@@ -201,3 +201,7 @@
 .anexo i {
     margin-right: 5px;
 }
+
+#upload_form p {
+    text-align: left;
+}

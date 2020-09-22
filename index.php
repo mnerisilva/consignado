@@ -171,13 +171,22 @@ include_once 'includes/message.php';
                   </div>  
                   <div id="editForm">   
                   </div>  
-            <div class='modal-footer'> 
-                 <span class='btn btn-success'><i class='fas fa-plus-circle' style='font-size: 3em;'></i></span>  
-                 <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>
-            </div>   
+                <div class='modal-footer'> 
+                        <form method="post" id="upload_form" enctype='multipart/form-data'>
+                            <p>Select Image</p>
+                         <p><input type="file" name="upload_file" /></p>
+                         <br />
+                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" />
+                         <p><input type="submit" name="upload_button" class="btn btn-success" value="Upload" /></p>
+                        </form>
+                     <!--<span class='btn btn-success'><i class='fas fa-plus-circle' style='font-size: 3em;'></i></span>-->  
+                     <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
+                </div>   
               </div> 
           </div>  
        </div> 
+    
+   
     
 
     
