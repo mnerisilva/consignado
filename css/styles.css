@@ -205,3 +205,13 @@
 #upload_form p {
     text-align: left;
 }
+
+.btn_upload_button {
+    width: 100%;
+}
+
+.input_upload_file {
+    border: solid 2px green;
+    padding: 5px;
+    width: 100%;
+}
