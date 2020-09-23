@@ -31,7 +31,7 @@
       }  
       echo "  
             <div class='modal-body'>
-                <table class='table'>
+                <table class='table table-striped'>
                     <thead>
                         <tr>
                             <th>Contrato</th>
