@@ -2,10 +2,14 @@
       // create database connectivity  
       require_once('php_action/db_connect.php'); 
 
-
- 
+      //var_dump($_POST); 
+      //die();
+      
+      if (isset($_POST['id_contrato'])) {  
+           $id_contrato = $_POST['id_contrato'];  
+      }  
       // fetch data from student table..
-      $sql = "SELECT id_contrato, id_anexo, path_anexo, file_name_anexo FROM tab_anexos";
+      $sql = "SELECT id_contrato, id_anexo, path_anexo, file_name_anexo FROM tab_anexos WHERE id_contrato = {$id_contrato}";
 
       $resultado = mysqli_query($connect, $sql);
 

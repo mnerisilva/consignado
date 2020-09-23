@@ -104,9 +104,9 @@ include_once 'includes/message.php';
                             <td><td>
                                 <!-- Mostra o ícone 'clips de papel' (anexos) na lista de propostas, somente quando houver pelo menos um documento anexo -->
                                 <?php
-                                    if($tem_anexo){
+                                    //if($tem_anexo){
                                         echo '<i class="fas fa-paperclip edit-btn" data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>';                                       
-                                    }
+                                    //}
                                  ?>
                                 <!-- --------------------------------------------------------------------------------------------------------------------- -->
                             </td>
@@ -178,7 +178,8 @@ include_once 'includes/message.php';
                          <br />
                          <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
                          <input type="hidden" name="id_contrato_anexo" id="id_contrato_anexo" value="" />
-                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>
+                         <!--<p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>-->
+                         <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" id="btn_upload_anexo" data-id_contrato_anexo="" value="Upload" /></p>
                         </form> 
                      <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
                 </div>   

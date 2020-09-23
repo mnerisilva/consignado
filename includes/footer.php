@@ -83,6 +83,7 @@ function lista_anexos(id_contrato){
                           //$(document).find('#upload_form').find('#hidden_folder_name').attr('values','uploads/'+id_contrato);
                          $('#hidden_folder_name').val('uploads/'+id+'/').trigger('change');
                          $('#id_contrato_anexo').val(id).trigger('change');
+                         $('#btn_upload_anexo').val(id).trigger('change');
                          console.log($('#hidden_folder_name').attr('value')); 
                      },  
                 });  
@@ -149,7 +150,8 @@ function lista_anexos(id_contrato){
                        console.log(data);
                        // depois de subir o arquivo, limpa o valor: 'val' do input que continha o nome do arquivo
                        $(e.target).find('#input_upload_file').val('');
-                       lista_anexos();
+                       var id_contrato_anexo = $('#btn_upload_anexo').val();
+                       lista_anexos(id_contrato_anexo);
                         //load_folder_list();
                         //alert(data);
                        }
