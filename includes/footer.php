@@ -18,7 +18,23 @@
     </body>
   </html>  
  <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->  
- <script type="text/javascript">  
+ <script type="text/javascript"> 
+(function(){
+    
+function lista_anexos(id_contrato){
+        $.ajax({  
+             url :"list_anexos.php",  
+             type:"POST", 
+             data:{id_contrato:id_contrato},  
+             cache:false, 
+             success:function(data){  
+                  $("#editForm").find('table').find('tbody').html(data);
+             },  
+        });
+    
+}    
+    
+    
       $(document).ready(function(){ 
               console.log('teste');
               $('#cpf').mask('000.000.000-00', {reverse: true});
@@ -131,7 +147,9 @@
                    processData:false,
                    success: function(data) { 
                        console.log(data);
+                       // depois de subir o arquivo, limpa o valor: 'val' do input que continha o nome do arquivo
                        $(e.target).find('#input_upload_file').val('');
+                       lista_anexos();
                         //load_folder_list();
                         //alert(data);
                        }
@@ -168,5 +186,8 @@
           
           
           
-      });  
+      }); 
+    
+    
+})();     
  </script>
