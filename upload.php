@@ -3,12 +3,7 @@
     // Conexão
     include_once 'php_action/db_connect.php';
 
-    if(!is_dir('uploads/50/')){ 
-	   echo 'Pasta "uploads/50/" nao existe';
-       mkdir('uploads/50/');
-       echo 'Pasta "uploads/50/" criada com sucesso!';
-    }
-         die();
+         //die();
          
     if($_FILES["upload_file"]["name"] != '') {
          $data = explode(".", $_FILES["upload_file"]["name"]);
@@ -23,9 +18,14 @@
         
              if(in_array($extension, $allowed_extension)) {
                 $new_file_name = rand() . '.' . $extension;
+                $diretorio = $_POST["hidden_folder_name"];
                 $path = $_POST["hidden_folder_name"] . $_FILES["upload_file"]["name"];
                  
-        
+                   if(!is_dir($diretorio)){ 
+                       //echo 'Pasta "uploads/50/" nao existe';
+                       mkdir($diretorio);
+                       //echo 'Pasta "uploads/50/" criada com sucesso!';
+                    }        
                 //echo 'new_file_name: ' . $new_file_name . '<br>';
                 //echo 'path: ' . $path . '<br>';
                  
