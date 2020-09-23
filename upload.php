@@ -2,6 +2,13 @@
     
     // Conexão
     include_once 'php_action/db_connect.php';
+
+    if(!is_dir('uploads/50/')){ 
+	   echo 'Pasta "uploads/50/" nao existe';
+       mkdir('uploads/50/');
+       echo 'Pasta "uploads/50/" criada com sucesso!';
+    }
+         die();
          
     if($_FILES["upload_file"]["name"] != '') {
          $data = explode(".", $_FILES["upload_file"]["name"]);
