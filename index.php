@@ -169,17 +169,16 @@ include_once 'includes/message.php';
                       <span aria-hidden="true">×</span>  
                      </button>  
                   </div>  
-                  <div id="editForm">   
-                  </div>  
+                      <div id="editForm">   
+                      </div>  
                 <div class='modal-footer'> 
                         <form method="post" id="upload_form" enctype='multipart/form-data'>
                             <p>Select Image</p>
                          <p><input type="file" name="upload_file" class="input_upload_file" /></p>
                          <br />
-                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" />
+                         <input type="hidden" name="hidden_folder_name" id="hidden_folder_name" value="" />
                          <p><input type="submit" name="upload_button" class="btn btn-success btn_upload_button" value="Upload" /></p>
-                        </form>
-                     <!--<span class='btn btn-success'><i class='fas fa-plus-circle' style='font-size: 3em;'></i></span>-->  
+                        </form> 
                      <button type='button' class='btn btn-secondary' data-dismiss='modal' style="font-size: 2.1em;">Close</button>                
                 </div>   
               </div> 

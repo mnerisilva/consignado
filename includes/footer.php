@@ -56,13 +56,17 @@
            $(document).on("click",".edit-btn",function(){ 
                console.log('clicou no .edit-btn');
                 var id = $(this).data('id');
+                var id_contrato = $(this).data('id_contrato');
                 $.ajax({  
                      url :"fetch.php",  
                      type:"POST",  
                      cache:false,  
                      data:{editId:id},  
                      success:function(data){  
-                          $("#editForm").html(data);  
+                          $("#editForm").html(data);
+                          //$(document).find('#upload_form').find('#hidden_folder_name').attr('values','uploads/'+id_contrato);
+                         $('#hidden_folder_name').val('uploads/'+id+'/').trigger('change');
+                         console.log($('#hidden_folder_name').attr('value')); 
                      },  
                 });  
            });  
@@ -115,21 +119,21 @@
             
           
             // upload de arquivos
-             $('#upload_form').on('submit', function(){
-              console.log('entrou no envio dos uploads');
-              $.ajax({
-               url:"upload.php",
-               method:"POST",
-               data: new FormData(this),
-               contentType: false,
-               cache: false,
-               processData:false,
-               success: function(data) { 
-                   console.log(data);
-                //load_folder_list();
-                //alert(data);
-               }
-              });
+             $(document).on('submit', '#upload_form', function(e){
+                e.preventDefault();
+                  $.ajax({
+                   url:"upload.php",
+                   method:"POST",
+                   data: new FormData(this),
+                   contentType: false,
+                   cache: false,
+                   processData:false,
+                   success: function(data) { 
+                       console.log(data);
+                        //load_folder_list();
+                        //alert(data);
+                       }
+                  });
              });          
           
           
