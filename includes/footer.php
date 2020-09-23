@@ -66,6 +66,7 @@
                           $("#editForm").html(data);
                           //$(document).find('#upload_form').find('#hidden_folder_name').attr('values','uploads/'+id_contrato);
                          $('#hidden_folder_name').val('uploads/'+id+'/').trigger('change');
+                         $('#id_contrato_anexo').val(id).trigger('change');
                          console.log($('#hidden_folder_name').attr('value')); 
                      },  
                 });  
@@ -130,6 +131,7 @@
                    processData:false,
                    success: function(data) { 
                        console.log(data);
+                       $(e.target).find('#input_upload_file').val('');
                         //load_folder_list();
                         //alert(data);
                        }
