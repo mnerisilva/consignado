@@ -9,21 +9,22 @@
            $idContrato = $_POST['idContrato'];
            $pathAnexo = $_POST['pathAnexo'];
            $fileNameAnexo = $_POST['fileNameAnexo'];
-           $caminho_e_nome_do_arquivo = $pathAnexo.'/'.$fileNameAnexo;
+           $caminho_e_nome_do_arquivo = $pathAnexo.$fileNameAnexo;
       }
 
 
-      /*var_dump($_POST);
-      die();*/
+      //echo '<pre>'.var_dump($_POST).'</pre>';
+      //echo '$caminho_e_nome_do_arquivo: ' . $caminho_e_nome_do_arquivo;
+      //echo '<br>$fileNameAnexo: ' . $fileNameAnexo;
+      //echo '<br>$pathAnexo: ' . $pathAnexo;
+      //die();
 
 
         // sql to delete a record
         $sql = "DELETE FROM tab_anexos WHERE id_anexo = {$idAnexo}";
 
         if (mysqli_query($connect, $sql)) {
-            //unlink($_POST["path"]);
             unlink($caminho_e_nome_do_arquivo);
-          //echo "Record deleted successfully";
         } else {
           echo "Error deleting record: " . mysqli_error($connect);
         }
@@ -43,11 +44,14 @@
       if(mysqli_num_rows($resultado) > 0){
       //while ($row = $query->fetch_assoc()) {
       while($dados = mysqli_fetch_array($resultado)){
+      $nome_do_arquivo_a_deletar = "'".$dados['file_name_anexo']."'";
+      $nome_do_arquivo_a_deletar = str_replace("'", "", $nome_do_arquivo_a_deletar);
+          
       $output .= "
                         <tr>
                             <td>".$dados['id_contrato']."</td>
                             <td><a href='".$dados['path_anexo']."/".$dados['file_name_anexo']."' target='_BLANK'>".$dados['file_name_anexo']."</a></td>
-                            <td><i class='fas fa-trash' data-id_contrato=".$dados['id_contrato']." data-id_anexo=".$dados['id_anexo']." data-path_anexo=".$dados['path_anexo']." data-file_name_anexo=".$dados['file_name_anexo']."></i></td>                            
+                            <td><i class='fas fa-trash' data-id_contrato=".$dados['id_contrato']." data-id_anexo=".$dados['id_anexo']." data-path_anexo=".$dados['path_anexo']." data-file_name_anexo=".$nome_do_arquivo_a_deletar."></i></td>                            
                         </tr>";
         }  
       }  

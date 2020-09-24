@@ -94,15 +94,12 @@ function lista_anexos(id_contrato){
                 var id_contrato = $(this).data('id_contrato');
                 var path_anexo = $(this).data('path_anexo');
                 var file_name_anexo = $(this).data('file_name_anexo');
-                console.log('clicou no .fa-trash = ' + id_anexo);
-                console.log('clicou no .fa-trash = ' + id_contrato);
-                //return false;
                 $.ajax({  
                      url :"delete.php",  
                      type:"POST",  
                      cache:false,  
                      data:{idAnexo:id_anexo, idContrato:id_contrato, pathAnexo:path_anexo, fileNameAnexo:file_name_anexo},  
-                     success:function(data){  
+                     success:function(data){
                           $("#editForm").html(data);
                           var split_file_name_anexo = file_name_anexo.split('.');
                           var file_name_anexo_sem_extensao = split_file_name_anexo[0];
