@@ -8,12 +8,13 @@
     if($_FILES["upload_file"]["name"] != '') {
          $data = explode(".", $_FILES["upload_file"]["name"]);
          $extension = $data[1];
-         $allowed_extension = array("jpg","pdf", "png", "gif", "doc", "docx", "jpeg", "txt");
+         $allowed_extension = array("doc", "docx", "gif", "jpg", "jpeg", "pdf", "png", "txt");
          $id_tipo_de_arquivo = (int) array_search($extension, $allowed_extension)+1;
                  
          //var_dump($_POST);        
          //var_dump($_FILES);
-         //echo '$id_da_extensao: ' . $id_da_extensao;
+         echo '$extension: ' . $extension;
+         echo '<br>$id_tipo_de_arquivo: ' . $id_tipo_de_arquivo;
          //die();
         
              if(in_array($extension, $allowed_extension)) {

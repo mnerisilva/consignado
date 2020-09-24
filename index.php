@@ -80,7 +80,8 @@ include_once 'includes/message.php';
                                 <?php 
                                     // lista tabela de anexos para montar os ícones na respectiva coluna
                                     $id_contrato = $dados['id_contrato'];
-                                    $sql2 = "SELECT id_contrato, file_name_anexo, path_anexo FROM tab_anexos WHERE ".$id_contrato." = id_contrato";
+                                    //$sql2 = "SELECT id_contrato, file_name_anexo, path_anexo FROM tab_anexos WHERE ".$id_contrato." = id_contrato";
+                                    $sql2 = "SELECT A.id_contrato, A.id_tipo_arquivo, A.file_name_anexo, A.path_anexo, T.id_tipo_arquivo, T.extensao_tipo_arquivo, T.icone_anexo FROM tab_anexos AS A INNER JOIN tab_tipo_arquivo_anexo AS T ON ".$id_contrato." = A.id_contrato WHERE A.id_tipo_arquivo = T.id_tipo_arquivo";
                                     $resultado2 = mysqli_query($connect, $sql2);
                                     $tem_anexo = false; // variável flag definida para determinas a exibição ou não do ícone "clips de papel" na coluna/linha, da proposta do contexto... "true" = com anexo, 'false' = sem anexo
                                     while($dados2 = mysqli_fetch_array($resultado2)):
@@ -92,7 +93,8 @@ include_once 'includes/message.php';
                                             $tipo_icone_anexo = $array_file_name[1];
                                             if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
                                             //echo $dados2['file_name_anexo'];                                            
-                                            echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                            
+                                            //echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                           
+                                            echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>';                                           
                                         }
                                     endwhile;                                     
                                 ?>
