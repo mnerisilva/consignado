@@ -13,8 +13,8 @@
                  
          //var_dump($_POST);        
          //var_dump($_FILES);
-         echo '$extension: ' . $extension;
-         echo '<br>$id_tipo_de_arquivo: ' . $id_tipo_de_arquivo;
+         //echo '$extension: ' . $extension;
+         //echo '<br>$id_tipo_de_arquivo: ' . $id_tipo_de_arquivo;
          //die();
         
              if(in_array($extension, $allowed_extension)) {
@@ -35,7 +35,7 @@
          //die();
                  
                   if(move_uploaded_file($_FILES["upload_file"]["tmp_name"], $path)) {
-                    echo 'Arquivo anexado!';
+                    //echo 'Arquivo anexado!';
 
                         $idContrato = $_POST['id_contrato_anexo'];
                         $idTipoDeArquivo = $id_tipo_de_arquivo;
