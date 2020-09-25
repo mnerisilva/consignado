@@ -4,6 +4,9 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="js/jquery.mask.min.js"></script>
+        <script src="js/ajax/monta_lista_anexo_fetch.js"></script>
+        <script src="js/ajax/apaga_anexo_da_lista_delete.js"></script>
+        <script src="js/ajax/upload_arquivo_escolhido_upload.js"></script>
 
 
       <script>
@@ -21,18 +24,7 @@
  <script type="text/javascript"> 
 (function(){
     
-function lista_anexos(id_contrato){
-        $.ajax({  
-             url :"list_anexos.php",  
-             type:"POST", 
-             data:{id_contrato:id_contrato},  
-             cache:false, 
-             success:function(data){  
-                  $("#editForm").find('table').find('tbody').html(data);
-             },  
-        });
     
-}    
     
     
       $(document).ready(function(){ 
@@ -68,50 +60,11 @@ function lista_anexos(id_contrato){
             //});          
           
           
-           // Edit record to mysqli from php using jquery ajax  
-           $(document).on("click",".edit-btn",function(){ 
-               console.log('clicou no .edit-btn');
-                var id = $(this).data('id');
-                var id_contrato = $(this).data('id_contrato');
-                $.ajax({  
-                     url :"fetch.php",  
-                     type:"POST",  
-                     cache:false,  
-                     data:{editId:id},  
-                     success:function(data){  
-                          $("#editForm").html(data);
-                          //$(document).find('#upload_form').find('#hidden_folder_name').attr('values','uploads/'+id_contrato);
-                         $('#hidden_folder_name').val('uploads/'+id+'/').trigger('change');
-                         $('#id_contrato_anexo').val(id).trigger('change');
-                         $('#btn_upload_anexo').val(id).trigger('change');
-                         console.log($('#hidden_folder_name').attr('value')); 
-                     },  
-                });  
-           });  
-           // Delete record to mysqli from php using jquery ajax  
-           $(document).on("click",".fa-trash",function(){ 
-                var id_anexo = $(this).data('id_anexo');
-                var id_contrato = $(this).data('id_contrato');
-                var path_anexo = $(this).data('path_anexo');
-                var file_name_anexo = $(this).data('file_name_anexo');
-                $.ajax({  
-                     url :"delete.php",  
-                     type:"POST",  
-                     cache:false,  
-                     data:{idAnexo:id_anexo, idContrato:id_contrato, pathAnexo:path_anexo, fileNameAnexo:file_name_anexo},  
-                     success:function(data){
-                          $("#editForm").html(data);
-                          var split_file_name_anexo = file_name_anexo.split('.');
-                          var file_name_anexo_sem_extensao = split_file_name_anexo[0];
-                          console.log('file_name_anexo: '+ file_name_anexo);
-                          console.log('.split'+file_name_anexo.split('.', file_name_anexo));
-                          console.log('file_name_anexo_sem_extensao: '+ file_name_anexo_sem_extensao);
-                          $('#'+file_name_anexo_sem_extensao).find('i').remove();
-                     },  
-                });  
-           }); 
+ 
+          
+
            // User record update to mysqli from php using jquery ajax  
-           $(document).on("click","#editSubmit", function(){  
+           /*$(document).on("click","#editSubmit", function(){  
                 var edit_id = $("#editId").val();  
                 var name = $("#editName").val();  
                 var email = $("#editEmail").val();  
@@ -130,33 +83,9 @@ function lista_anexos(id_contrato){
                           }  
                      }  
                 });  
-           });
+           }); apagando por enquanto, durante a restruturação do js/ajax*/
             
-          
-            // upload de arquivos
-             $(document).on('submit', '#upload_form', function(e){
-                e.preventDefault();
-                  $("#btn_upload_anexo").prop("disabled", true);
-                  $.ajax({
-                   url:"upload.php",
-                   method:"POST",
-                   enctype: 'multipart/form-data',
-                   data: new FormData(this),
-                   contentType: false,
-                   cache: false,
-                   processData:false,
-                   success: function(data) { 
-                       console.log(data);
-                       // depois de subir o arquivo, limpa o valor: 'val' do input que continha o nome do arquivo
-                       $(e.target).find('#input_upload_file').val('');
-                       var id_contrato_anexo = $('#btn_upload_anexo').val();
-                       $("#btn_upload_anexo").prop("disabled", false);
-                       lista_anexos(id_contrato_anexo);
-                        //load_folder_list();
-                        //alert(data);
-                       }
-                  });
-             });          
+         
           
           
            

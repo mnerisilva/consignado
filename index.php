@@ -106,8 +106,10 @@ include_once 'includes/message.php';
                             <td><td>
                                 <!-- Mostra o ícone 'clips de papel' (anexos) na lista de propostas, somente quando houver pelo menos um documento anexo -->
                                 <?php
-                                    //if($tem_anexo){
-                                        echo '<i class="fas fa-paperclip edit-btn" data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>';                                       
+                                        // IMPORTANTE!
+                                        // botão do clip de papel que carrega a #modalAnexos e monta na div ID #editForm a lista de anexos tomando como base os dados levandos
+                                        // do 'data-id' da proposta clicada
+                                        echo '<i class="fas fa-paperclip clip-anexo" data-toggle="modal" data-target="#modalAnexos" data-id="'.$dados['id_contrato'].'"></i>';                                       
                                     //}
                                  ?>
                                 <!-- --------------------------------------------------------------------------------------------------------------------- -->
@@ -161,7 +163,18 @@ include_once 'includes/message.php';
             <a href="adicionar_proposta.php" class="btn btn-success">Adicionar proposta</a>          
         </div>
     </div>
-       <!-- Modal anexo  -->    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       <!-- JANELA MODAL COM A LISTA DE ANEXOS DA PROPOSTA CLICADA - DIV ID #editForm -->    
        <div class="modal fade" id="modalAnexos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">  
             <div class="modal-dialog" role="document">  
               <div class="modal-content">  
@@ -188,6 +201,11 @@ include_once 'includes/message.php';
               </div> 
           </div>  
        </div> 
+    
+    
+    
+    
+    
     
    
     
