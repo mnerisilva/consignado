@@ -40,7 +40,7 @@
                           console.log('file_name_anexo_sem_extensao: '+ file_name_anexo_sem_extensao.replace(/\s/g, ''));
                           //$('#'+file_name_anexo_sem_extensao.replace(/\s/g, '')).find('i').remove();
                          
-                         lista_anexos2(1);
+                         lista_anexos2(id_contrato);
                      },  
                 });  
            }); 

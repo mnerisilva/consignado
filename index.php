@@ -48,9 +48,9 @@ include_once 'includes/message.php';
 
                         while($dados = mysqli_fetch_array($resultado)):
                         ?>
-                        <?php echo '<tr id="'. $dados['situa_contrato'] . '">'; ?>
+                        <?php echo '<tr id="'. $dados['id_contrato'] . '">'; ?>
                             <?php echo '<td class="color-'. $dados['situa_contrato'] . ' cod-cliente">'; ?>
-                            <?php echo $dados['id_cli'].'</td>'; ?>
+                            <?php echo $dados['id_contrato'].'</td>'; ?>
                             <td class="td-nome"><?php echo $dados['nome_cli']; ?></td>
                             <td class="td-cpf"><?php echo $dados['cpf_cli']; ?></td>
                             <!--<td></td>

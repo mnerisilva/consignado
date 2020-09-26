@@ -1,5 +1,23 @@
 (function(){
     
+                // atualiza lista de anexos da janela #modalAnexos, div id #editForm, após o upload do arquivo.
+             function lista_anexos2upload(id_contrato){
+                    console.log('entrei na funcao lista_anexos2upload');
+                    $.ajax({  
+                         url :"list_anexos2.php",  
+                         type:"POST", 
+                         data:{id_contrato:id_contrato},  
+                         cache:false, 
+                         success:function(data){  
+                              //$("#editForm").find('table').find('tbody').html(data);
+                             console.log('data: '+data);
+                             $('#'+id_contrato).find('.td-anexos').html('');
+                             $('#'+id_contrato).find('.td-anexos').append(data);
+                         },  
+                    });
+
+             }
+    
     
             // atualiza lista de anexos da janela #modalAnexos, div id #editForm, após o upload do arquivo.
              function lista_anexos(id_contrato){
@@ -36,6 +54,7 @@
                        var id_contrato_anexo = $('#btn_upload_anexo').val();
                        $("#btn_upload_anexo").prop("disabled", false);
                        lista_anexos(id_contrato_anexo);
+                       lista_anexos2upload(id_contrato_anexo);
                         //load_folder_list();
                         //alert(data);
                        }

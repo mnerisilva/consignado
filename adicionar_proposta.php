@@ -23,23 +23,11 @@ include_once 'includes/header.php';
                       <div class="form-group col-md-3">
                         <label class="" for="orgao">Órgão:</label>
                           <select class="form-control" name="orgao" id="orgao">
-                            <option value="">...</option>
-                            <option value="1">INSS</option>
-                            <option value="2">SIAPE</option>
-                            <option value="3">GOV SC</option>
                           </select>
                       </div>
                       <div class="form-group col-md-2">
                         <label class="" for="bn">No. Benefício (bn):</label>
                           <select class="form-control" name="bn" id="bn">
-                            <option value="">...</option>
-                            <option value="1">21</option>
-                            <option value="2">32</option>
-                            <option value="3">41</option>
-                            <option value="4">42</option>
-                            <option value="5">46</option>
-                            <option value="6">92</option>
-                            <option value="7">93</option>
                           </select>
                       </div>
                       <div class="form-group col-md-2">
@@ -51,28 +39,16 @@ include_once 'includes/header.php';
                       <div class="form-group col-md-4">
                         <label class="" for="opera">Operação:</label>
                           <select class="form-control" name="opera" id="opera">
-                            <option value="">...</option>
-                            <option value="1">Potabilidade</option>
-                            <option value="2">Porta + Refi</option>
-                            <option value="3">Contrato Novo</option>
-                            <option value="4">Refinanciamento</option>
                           </select>
                       </div>                        
                       <div class="form-group col-md-4">
                         <label class="" for="promo">promotora:</label>
                           <select class="form-control" name="promo" id="promo">
-                            <option value="">...</option>
-                            <option value="1">LEWE</option>
-                            <option value="2">FONTES</option>
-                            <option value="3">GFT</option>
                           </select>
                       </div>                        
                       <div class="form-group col-md-4">
                         <label class="" for="vend">Vendedor:</label>
                           <select class="form-control" name="vend" id="vend">
-                            <option value="">...</option>
-                            <option value="1">Manoel</option>
-                            <option value="2">Thauan</option>
                           </select>
                       </div>
                     </div>
@@ -80,22 +56,6 @@ include_once 'includes/header.php';
                       <div class="form-group col-md-6">
                         <label class="" for="situa">Situação:</label>
                           <select class="form-control" name="situa" id="situa">
-                            <option value="">...</option>
-                            <option value="1">Aguardando digitação</option>
-                            <option value="2">Aguardando saldo devedor</option>
-                            <option value="3">Aguardando averbação</option>
-                            <option value="4">Averbado</option>
-                            <option value="5">Aguardando Refin da Portabilidade</option>
-                            <option value="7">Pendente -> Anexar contrato</option>
-                            <option value="8">Pendente -> Documento pendente</option>
-                            <option value="9"><span style="font-weight: 700;">Cancelado</span> -> Cliente retido</option>
-                            <option value="10">Cancelado -> Número de contrato não encontrado</option>
-                            <option value="11">Cancelado -> Contrato com portabilidade em andamento</option>
-                            <option value="12">Cancelado -> Cliente solicitou o cancelamento</option>
-                            <option value="13">Cancelado -> Margem consignável excedida</option>
-                            <option value="14">Cancelado -> Cliente com restrição interna</option>
-                            <option value="15">Cancelado -> Cliente com margem negativa</option>
-                            <option value="16">Cancelado -> CPF irregular na receita federal</option>
                           </select>
                       </div>                        
                       <div class="form-group col-md-3">
@@ -105,8 +65,6 @@ include_once 'includes/header.php';
                       <div class="form-group col-md-3">
                         <label class="" for="bccompra">Bco comprado:</label>
                           <select class="form-control" name="bccompra" id="bccompra">
-                            <option value="">...</option>
-                            <option value="1">BANRISUL</option>
                           </select>
                       </div>
                     </div>

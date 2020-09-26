@@ -87,34 +87,117 @@
             
          
           
-          
+                var action = '';
            
            // populando select cliente no formulário adicionar_proposta.php
-                var action = 'proposta_cli'; 
+                action = 'proposta_cli'; 
                 $.ajax({  
                      url:"popula_selects.php",  
                      type:"POST",  
                      cache:false,  
                      data:{action: action},  
                      success:function(data){
-                         //console.log(data);
+                         //console.log('data ajax select clientes: '+data);
                          $('#cli').html(data);
                      }  
                 })
           
-           // populando select cliente no formulário adicionar_proposta.php
-                /*var action = 'proposta_orgao'; 
+           // populando select orgão no formulário adicionar_proposta.php
+                action = 'proposta_orgao'; 
                 $.ajax({  
                      url:"popula_selects.php",  
                      type:"POST",  
                      cache:false,  
                      data:{action: action},  
                      success:function(data){
-                         console.log(data);
-                         $('#cli').html(data);
+                         console.log('data ajax select orgao: '+data);
+                         $('#orgao').html(data);
                      }  
-                })*/
+                })
+                  
+           // populando select bn no formulário adicionar_proposta.php
+                action = 'proposta_bn'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select bn: '+data);
+                         $('#bn').html(data);
+                     }  
+                })
           
+
+                  
+           // populando select operacao no formulário adicionar_proposta.php
+                action = 'proposta_opera'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select operação: '+data);
+                         $('#opera').html(data);
+                     }  
+                })  
+          
+                  
+           // populando select promotora no formulário adicionar_proposta.php
+                action = 'proposta_promo'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select promotora: '+data);
+                         $('#promo').html(data);
+                     }  
+                }) 
+          
+                  
+           // populando select vendedor no formulário adicionar_proposta.php
+                action = 'proposta_vend'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select vendedor: '+data);
+                         $('#vend').html(data);
+                     }  
+                }) 
+          
+                           
+           // populando select situacao no formulário adicionar_proposta.php
+                action = 'proposta_situa'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select situacao: '+data);
+                         $('#situa').html(data);
+                     }  
+                }) 
+          
+                                     
+           // populando select situacao no formulário adicionar_proposta.php
+                action = 'proposta_bccompra'; 
+                $.ajax({  
+                     url:"popula_selects.php",  
+                     type:"POST",  
+                     cache:false,  
+                     data:{action: action},  
+                     success:function(data){
+                         console.log('data ajax select bccompra: '+data);
+                         $('#bccompra').html(data);
+                     }  
+                }) 
           
           
       }); 
