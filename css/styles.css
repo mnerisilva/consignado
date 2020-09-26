@@ -19,6 +19,20 @@
    color: indianred;
 }
 
+.color-3 {
+    border-right: solid 9px forestgreen;
+    /*position:  relative;*/
+    /*background-color: burlywood;*/
+}
+
+.color-3 ~ .td-situa { 
+    color: forestgreen;
+}
+
+.color-3 ~ .td-motivo-situa { 
+    color: forestgreen;
+}
+
 .color-8 {
     border-right: solid 9px burlywood;
     /*position:  relative;*/
@@ -45,6 +59,20 @@
 
 .color-11 ~ .td-motivo-situa { 
     color: #a987de;
+}
+
+.color-14 {
+    border-right: solid 9px crimson;
+    /*position:  relative;*/
+    /*background-color: burlywood;*/
+}
+
+.color-14 ~ .td-situa { 
+    color: crimson;
+}
+
+.color-14 ~ .td-motivo-situa { 
+    color: crimson;
 }
 
 
@@ -88,6 +116,7 @@
 .lista-propostas>tbody>tr>td.td-cpf, .lista-propostas>tbody>tr>td.td-ade {
     
     padding-left: 5px !important;
+    border-right: solid thin #dfdddd;
 }
 
 .lista-propostas>tbody>tr>td.td-nome {
@@ -149,9 +178,7 @@
 }*/
 
 
-.lista-propostas tbody tr td:last-child {
-    border-right: solid 9px indianred;
-}
+
 
 
 

@@ -37,8 +37,8 @@ include_once 'includes/message.php';
                     <tbody>
                         <?php
                         //$sql = "SELECT * FROM tab_clientes";
-                        $sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";
-                        /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
+                        $sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli";
+                        /*$sql = "SELECT C.id_cli, C.nome_cli, C.cpf_cli, P.id_contrato, P.ade_contrato, P.parce_contrato, P.id_bccompra_contrato, P.situa_contrato, P.id_orgao, A.file_name_anexo, A.path_anexo FROM tab_propostas AS P INNER JOIN tab_clientes AS C ON P.id_cli = C.id_cli INNER JOIN tab_anexos AS A ON P.id_contrato = A.id_contrato";*/
                         
                         $resultado = mysqli_query($connect, $sql);
                         
@@ -48,7 +48,7 @@ include_once 'includes/message.php';
 
                         while($dados = mysqli_fetch_array($resultado)):
                         ?>
-                        <tr>
+                        <?php echo '<tr id="'. $dados['situa_contrato'] . '">'; ?>
                             <?php echo '<td class="color-'. $dados['situa_contrato'] . ' cod-cliente">'; ?>
                             <?php echo $dados['id_cli'].'</td>'; ?>
                             <td class="td-nome"><?php echo $dados['nome_cli']; ?></td>
@@ -65,18 +65,44 @@ include_once 'includes/message.php';
                                     $resultado3 = mysqli_query($connect, $sql3);
                                     $texto_id_situa = '';
                                     $texto_motivo_situa = '';
-                                    while($dados3 = mysqli_fetch_array($resultado3)):
-                                        $texto_id_situa     = $dados3['descricao_situacao'];
-                                        $texto_motivo_situa = $dados3['motivo_descricao_situacao'];
-                                    endwhile;  
+                                        while($dados3 = mysqli_fetch_array($resultado3)):
+                                            $texto_id_situa     = $dados3['descricao_situacao'];
+                                            $texto_motivo_situa = $dados3['motivo_descricao_situacao'];
+                                        endwhile;  
                                 
                                 ?>
                                 <?php echo '<i class="fas fa-grip-horizontal"></i><span class="span-situa-1">&nbsp;</span>';?>
                                 <?php echo $texto_id_situa; ?></td>
                             <td class="td-motivo-situa"><?php echo $texto_motivo_situa; ?></td>
-                            <td class="td-orgao"><?php echo $dados['id_orgao']; ?></td>
-                            <td class="td-bccompra"><?php echo $dados['bccompra_contrato']; ?></td>
-                            <td>
+                            <td class="td-orgao">
+                                <?php                                
+                                   // busca nome do orgao
+                                    $sql4 = "SELECT id_orgao, nome_orgao FROM tab_orgao WHERE ".$dados['id_orgao']." = id_orgao";
+                                    $resultado4 = mysqli_query($connect, $sql4);
+                                        while($dados4 = mysqli_fetch_array($resultado4)):
+                                            echo $dados4['nome_orgao'];
+                                        endwhile;  
+                                
+                                ?></td>
+                            
+                            
+                            <td class="td-bccompra">
+                                <?php                                
+                                   // busca nome do orgao
+                                    $sql5 = "SELECT id_bccompra_contrato, nome_bccompra FROM tab_bccompra WHERE ".$dados['id_bccompra_contrato']." = id_bccompra_contrato";
+                                    $resultado5 = mysqli_query($connect, $sql5);
+                                    $texto_id_situa = '';
+                                    $texto_motivo_situa = '';
+                                        while($dados5 = mysqli_fetch_array($resultado5)):
+                                            echo $dados5['nome_bccompra'];
+                                        endwhile;  
+                                
+                                ?></td>
+                            
+                            
+                            
+                            
+                            <td class="td-anexos">
                                 <?php 
                                     // lista tabela de anexos para montar os ícones na respectiva coluna
                                     $id_contrato = $dados['id_contrato'];
@@ -84,19 +110,19 @@ include_once 'includes/message.php';
                                     $sql2 = "SELECT A.id_contrato, A.id_tipo_arquivo, A.file_name_anexo, A.path_anexo, T.id_tipo_arquivo, T.extensao_tipo_arquivo, T.icone_anexo FROM tab_anexos AS A INNER JOIN tab_tipo_arquivo_anexo AS T ON ".$id_contrato." = A.id_contrato WHERE A.id_tipo_arquivo = T.id_tipo_arquivo";
                                     $resultado2 = mysqli_query($connect, $sql2);
                                     $tem_anexo = false; // variável flag definida para determinas a exibição ou não do ícone "clips de papel" na coluna/linha, da proposta do contexto... "true" = com anexo, 'false' = sem anexo
-                                    while($dados2 = mysqli_fetch_array($resultado2)):
-                                        if($dados2['file_name_anexo'] <> '') {
-                                            $tem_anexo = true;
-                                            $array_file_name = explode('.', $dados2['file_name_anexo']);
-                                            $file_name = $array_file_name[0];
-                                            $extensao_file = $array_file_name[1];
-                                            $tipo_icone_anexo = $array_file_name[1];
-                                            if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
-                                            //echo $dados2['file_name_anexo'];                                            
-                                            //echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                           
-                                            echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>';                                           
-                                        }
-                                    endwhile;                                     
+                                        while($dados2 = mysqli_fetch_array($resultado2)):
+                                            if($dados2['file_name_anexo'] <> '') {
+                                                $tem_anexo = true;
+                                                $array_file_name = explode('.', $dados2['file_name_anexo']);
+                                                $file_name = $array_file_name[0];
+                                                $extensao_file = $array_file_name[1];
+                                                $tipo_icone_anexo = $array_file_name[1];
+                                                if($extensao_file == 'jpg' || $extensao_file == 'jpeg'){$tipo_icone_anexo = 'image';}
+                                                //echo $dados2['file_name_anexo'];                                            
+                                                //echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'"><i class="far fa-file-'.$tipo_icone_anexo.'"></i></a>';                                           
+                                                echo '<a class="color-icon-'.$extensao_file.' anexo" download href="'.$dados2["path_anexo"].'/'.$file_name.'.'.$extensao_file.'" id="'.str_replace("", " ", $file_name).'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>';                                           
+                                            }
+                                        endwhile;                                     
                                 ?>
                             </td>
                             <!--<td></td>
@@ -117,7 +143,7 @@ include_once 'includes/message.php';
                             
                             <td><a href="editar.php?id=<?php echo $dados['id_cli']; ?>" class="btn-floating orange"><i class="fas fa-edit"></i></a></td>
 
-                            <td><a href="#modal<?php echo $dados['id_cli']; ?>" class="btn-floating red modal-trigger"><i class="fas fa-trash"></i></a></td>
+                            <td class="<?php echo 'color-'. $dados['situa_contrato']; ?>"><a href="#modal<?php echo $dados['id_cli']; ?>" class="btn-floating red modal-trigger"><i class="fas fa-trash"></i></a></td>
 
                             <!-- Modal Structure -->
                               <div id="modal<?php echo $dados['id_cli']; ?>" class="modal">

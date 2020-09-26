@@ -36,13 +36,15 @@
       $file_name_anexo = $dados['file_name_anexo'];
           
           
-      $output .= "
-                        <tr>
-                            <td>".$dados['id_contrato']."</td>
-                            <td><a href='".$dados['path_anexo']."/".$dados['file_name_anexo']."' target='_BLANK'>".$dados['file_name_anexo']."</a></td>
-                            <td><i class='fas fa-trash' data-id_contrato=".$dados['id_contrato']." data-id_anexo=".$dados['id_anexo']." data-path_anexo=".$dados['path_anexo']." data-file_name_anexo='".$file_name_anexo."'></i></td>                            
-                        </tr>";
+      //$output .= "<a class='color-icon-'".$extensao_file."' anexo' download href='".$dados2["path_anexo"]."/".$file_name.'.'.$extensao_file.'" id="'.$file_name.'" title="'.$file_name.'.'.$extensao_file.'">'.$dados2['icone_anexo'].'</a>";
+      
+      
+      $output .= "<a class='color-icon-".$extensao." anexo' href='".$dados['path_anexo']."/".$dados['file_name_anexo']."' target='_BLANK' title='".$file_name_anexo."'><i class='far fa-file-image'></i></a>";
+      
+      
         }  
       }  
       echo $output; 
+
+
  ?> 
